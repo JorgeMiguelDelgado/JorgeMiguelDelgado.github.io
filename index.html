@@ -1,23 +1,91 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="es">
 <head>
-    <title>Jorge Delgado | Portafolio</title>
+    <title>Jorge Delgado | Desarrollador Android</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/png" href="img/izicodes2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Jorge Delgado - Desarrollador de apps híbridas iOS y Android. Fundador de IziCodes." />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background: #0d1b2a;
             color: #e0e6ed;
-            line-height: 1.6;
+            line-height: 1.7;
+        }
+
+        a { color: #4a9eff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ---- NAVBAR ---- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #1b2a3a;
+            padding: 14px 24px;
+        }
+
+        .navbar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 1rem;
+            letter-spacing: -0.2px;
+            text-decoration: none;
+        }
+        .navbar-brand:hover { text-decoration: none; }
+
+        .navbar-brand img {
+            height: 26px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul a {
+            color: #b8c5d3;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .navbar ul a:hover { color: #4a9eff; text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .navbar ul { gap: 14px; }
+            .navbar ul a { font-size: 0.78rem; }
+            .navbar-brand span { display: none; }
         }
 
         /* ---- HEADER ---- */
         header {
             background: #0d1b2a;
-            padding: 70px 24px 60px;
+            padding: 70px 24px 50px;
             text-align: center;
             border-bottom: 1px solid #1b2a3a;
         }
@@ -31,34 +99,38 @@
 
         header .subtitle {
             margin-top: 12px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: #8fa3b8;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta {
             display: inline-block;
-            margin-top: 28px;
+            margin-top: 26px;
             padding: 12px 28px;
             background: #1e5fa8;
             color: #ffffff;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             letter-spacing: 0.3px;
             transition: background 0.2s;
         }
-        .cta:hover { background: #164a85; }
+        .cta:hover { background: #164a85; text-decoration: none; }
 
         /* ---- SECCIONES ---- */
         .section {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 50px 24px;
+            scroll-margin-top: 70px;
         }
 
         .section h2 {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 8px;
             font-weight: 700;
@@ -66,97 +138,321 @@
 
         .section .desc {
             color: #8fa3b8;
-            margin-bottom: 32px;
-            font-size: 0.95rem;
+            margin-bottom: 28px;
+            font-size: 0.92rem;
         }
 
-        /* ---- GRID APPS ---- */
+        /* ---- SERVICIOS ---- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        @media (max-width: 800px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+
+        .service-card {
+            background: #142433;
+            border: 1px solid #1b2a3a;
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .service-card .icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card h3 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #8fa3b8;
+            font-size: 0.88rem;
+        }
+
+        /* ---- APPS ---- */
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        @media (max-width: 1000px) {
+            .apps-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 700px) {
+            .apps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 450px) {
+            .apps-grid { grid-template-columns: 1fr; }
         }
 
         .app-card {
             background: #142433;
             border: 1px solid #1b2a3a;
             border-radius: 10px;
-            padding: 22px;
+            padding: 20px;
             transition: border-color 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
         }
         .app-card:hover {
             border-color: #1e5fa8;
             transform: translateY(-3px);
         }
 
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .app-icon.svg-icon {
+            background: #1b2a3a;
+            color: #4a9eff;
+        }
+        .app-icon.svg-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
         .app-card h3 {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
         }
 
         .app-card p {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             color: #8fa3b8;
-            margin-bottom: 18px;
-            min-height: 48px;
+            margin-bottom: 16px;
+            flex-grow: 1;
         }
 
-        .app-card a {
+        /* ---- BOTONES DE APP (Play Store + Web) ---- */
+        .app-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .app-links a {
             display: inline-block;
-            padding: 9px 16px;
+            padding: 8px 14px;
             background: #1e5fa8;
             color: #ffffff;
             text-decoration: none;
             border-radius: 6px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             transition: background 0.2s;
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
         }
-        .app-card a:hover { background: #164a85; }
+
+        .app-links a:hover { background: #164a85; text-decoration: none; }
+
+        .app-links a.btn-outline {
+            background: transparent;
+            border: 1px solid #1e5fa8;
+            color: #4a9eff;
+        }
+
+        .app-links a.btn-outline:hover {
+            background: #1e5fa8;
+            color: #ffffff;
+        }
+
+        /* ---- PRÓXIMAMENTE ---- */
+        .coming-soon-card {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            background: #142433;
+            border: 1px solid #1b2a3a;
+            border-left: 3px solid #1e5fa8;
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .coming-soon-card .cs-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #1b2a3a;
+        }
+
+        .coming-soon-card .cs-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .coming-soon-card .cs-info h3 {
+            color: #ffffff;
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .coming-soon-card .cs-info p {
+            color: #8fa3b8;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon-tag {
+            display: inline-block;
+            background: #1e5fa8;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 600px) {
+            .coming-soon-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
 
         /* ---- SOBRE MI ---- */
         #sobre-mi p {
             color: #b8c5d3;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             font-size: 0.95rem;
+            max-width: 780px;
         }
-        #sobre-mi a {
-            color: #4a9eff;
-            text-decoration: none;
+
+        /* ---- TECNOLOGÍAS ---- */
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        #sobre-mi a:hover { text-decoration: underline; }
+
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #142433;
+            border: 1px solid #1b2a3a;
+            color: #b8c5d3;
+            padding: 7px 14px 7px 10px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: border-color 0.2s;
+        }
+
+        .tech-badge:hover {
+            border-color: #1e5fa8;
+        }
+
+        .tech-badge img {
+            width: 18px;
+            height: 18px;
+            display: block;
+        }
 
         /* ---- FOOTER ---- */
         footer {
             text-align: center;
-            padding: 32px 24px;
+            padding: 30px 24px;
             border-top: 1px solid #1b2a3a;
             color: #5a6b7d;
-            font-size: 0.85rem;
-        }
-        footer a {
-            color: #4a9eff;
-            text-decoration: none;
+            font-size: 0.82rem;
         }
 
         @media (max-width: 600px) {
             header h1 { font-size: 2rem; }
+            header { padding: 50px 20px 40px; }
             .section { padding: 40px 18px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="navbar-brand">
+                <img src="img/izicodes2.png" alt="IziCodes" />
+                <span>Jorge Delgado</span>
+            </a>
+            <ul>
+                <li><a href="#servicios">Qué hago</a></li>
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#proximamente">Próximamente</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#tecnologias">Tecnologías</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- HEADER -->
     <header>
         <h1>Jorge Delgado</h1>
-        <p class="subtitle">Desarrollador de aplicaciones Android</p>
+        <p class="subtitle">
+            Desarrollo aplicaciones híbridas para iOS y Android enfocadas en productividad,
+            educación y entretenimiento. Fundador de IziCodes.
+        </p>
         <a href="https://izicodes.com" class="cta" target="_blank" rel="noopener">izicodes.com</a>
     </header>
+
+    <!-- QUÉ HAGO -->
+    <section class="section" id="servicios">
+        <h2>Qué hago</h2>
+        <p class="desc">Mi enfoque al desarrollar software.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">📱</div>
+                <h3>Apps híbridas iOS y Android</h3>
+                <p>Desarrollo multiplataforma con Flutter y Dart, publicando en Google Play y App Store con una sola base de código.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+                <h3>Backend y datos</h3>
+                <p>Integración con Firebase, APIs REST y bases de datos para apps que necesitan sincronización en la nube.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🎯</div>
+                <h3>Producto completo</h3>
+                <p>Desde la idea hasta la publicación: diseño, desarrollo, pruebas y mantenimiento de cada aplicación.</p>
+            </div>
+        </div>
+    </section>
 
     <!-- APPS -->
     <section class="section" id="apps">
@@ -166,43 +462,140 @@
         <div class="apps-grid">
 
             <div class="app-card">
+                <div class="app-icon">
+                    <img src="img/Proyectos/stocker.png" alt="Stocker" />
+                </div>
                 <h3>Stocker</h3>
                 <p>Control de inventario y ventas para pymes y emprendedores.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.izicodes.stocker" target="_blank" rel="noopener">Ver en Play Store</a>
+                <div class="app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.izicodes.stocker" target="_blank" rel="noopener">Play Store</a>
+                </div>
             </div>
 
             <div class="app-card">
+                <div class="app-icon">
+                    <img src="img/Proyectos/guia_dino.png" alt="NIUS UAGRM" />
+                </div>
                 <h3>NIUS UAGRM</h3>
                 <p>Guía universitaria para nuevos estudiantes de la UAGRM.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.izicodes.guia_dino" target="_blank" rel="noopener">Ver en Play Store</a>
+                <div class="app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.izicodes.guia_dino" target="_blank" rel="noopener">Play Store</a>
+                    <a href="https://uagrmniu.space" class="btn-outline" target="_blank" rel="noopener">Sitio web</a>
+                </div>
             </div>
 
             <div class="app-card">
+                <div class="app-icon svg-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
                 <h3>Sabelotodo</h3>
                 <p>Chatbot con inteligencia artificial para conversar sobre cualquier tema.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.izicodes.izispeaker" target="_blank" rel="noopener">Ver en Play Store</a>
+                <div class="app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.izicodes.izispeaker" target="_blank" rel="noopener">Play Store</a>
+                </div>
             </div>
 
             <div class="app-card">
+                <div class="app-icon svg-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                        <line x1="2" y1="10" x2="22" y2="10"></line>
+                        <line x1="7" y1="5" x2="7" y2="10"></line>
+                        <line x1="12" y1="5" x2="12" y2="10"></line>
+                        <line x1="17" y1="5" x2="17" y2="10"></line>
+                    </svg>
+                </div>
                 <h3>Izi Movies</h3>
                 <p>Catálogo de películas y series con buscador integrado.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.izicodes.izimoviespeliculas" target="_blank" rel="noopener">Ver en Play Store</a>
+                <div class="app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.izicodes.izimoviespeliculas" target="_blank" rel="noopener">Play Store</a>
+                </div>
             </div>
 
             <div class="app-card">
+                <div class="app-icon">
+                    <img src="img/Proyectos/beethoven.png" alt="Beethoven" />
+                </div>
                 <h3>Beethoven</h3>
                 <p>App de rescate y adopción de mascotas.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.izicodes.izimascotas" target="_blank" rel="noopener">Ver en Play Store</a>
+                <div class="app-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.izicodes.izimascotas" target="_blank" rel="noopener">Play Store</a>
+                    <a href="https://caninosos.online" class="btn-outline" target="_blank" rel="noopener">Sitio web</a>
+                </div>
             </div>
 
+        </div>
+    </section>
+
+    <!-- PRÓXIMAMENTE -->
+    <section class="section" id="proximamente">
+        <h2>Próximamente</h2>
+        <p class="desc">En lo que estoy trabajando ahora.</p>
+
+        <div class="coming-soon-card">
+            <div class="cs-icon">
+                <img src="img/Proyectos/guitar.png" alt="IziCanciones" />
+            </div>
+            <div class="cs-info">
+                <span class="coming-soon-tag">En desarrollo</span>
+                <h3 style="margin-top: 10px;">IziCanciones</h3>
+                <p>
+                    Acordes y letras para guitarristas: busca canciones, consulta acordes,
+                    letras y aprende a tocar tus temas favoritos desde el celular.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- SOBRE MI -->
     <section class="section" id="sobre-mi">
         <h2>Sobre mí</h2>
-        <p>Desarrollador de software enfocado en crear aplicaciones Android útiles y accesibles.</p>
-        <p>Más información en <a href="https://izicodes.com" target="_blank" rel="noopener">izicodes.com</a>.</p>
+        <p>
+            Soy Jorge Delgado, desarrollador de software enfocado en el ecosistema móvil.
+            A través de IziCodes creo aplicaciones que resuelven problemas concretos: desde la gestión
+            de inventario de un negocio hasta la orientación de estudiantes universitarios.
+        </p>
+        <p>
+            Cada aplicación que publico la construyo pensando en que sea simple de usar, rápida y útil
+            desde el primer minuto. Me interesa el producto completo, no solo el código.
+        </p>
+        <p>
+            Puedes ver el catálogo completo en <a href="https://izicodes.com" target="_blank" rel="noopener">izicodes.com</a>.
+        </p>
+    </section>
+
+    <!-- TECNOLOGÍAS -->
+    <section class="section" id="tecnologias">
+        <h2>Lenguajes</h2>
+        <p class="desc">Con los que trabajo día a día.</p>
+        <div class="tech-list">
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"> Java</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"> Python</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"> PHP</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart"> Dart</span>
+        </div>
+
+        <h2 style="margin-top: 40px;">Frameworks y herramientas</h2>
+        <p class="desc">Con los que construyo productos completos.</p>
+        <div class="tech-list">
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"> Flutter</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"> Laravel</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"> Django</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"> Git</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase"> Firebase</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="API REST"> API REST</span>
+        </div>
+
+        <h2 style="margin-top: 40px;">Bases de datos</h2>
+        <p class="desc">Motores con los que trabajo.</p>
+        <div class="tech-list">
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"> PostgreSQL</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"> MySQL</span>
+            <span class="tech-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite"> SQLite</span>
+        </div>
     </section>
 
     <!-- FOOTER -->
