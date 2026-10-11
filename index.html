@@ -1,73 +1,126 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Jorge Miguel Delgado | IziCodes</title>
+    <title>Jorge Delgado | Portafolio</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
     <style>
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5em;
-            margin-top: 2em;
+        body, input, select, textarea {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
         }
-        .app-card {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 1.5em;
-            text-align: center;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+
+        #header .content .inner h1 {
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
-        .app-card:hover {
-            transform: translateY(-5px);
-            border-color: #ffffff;
+
+        #header .content .inner p {
+            color: #d0d6dd;
         }
-        .app-card h3 { margin: 0.5em 0; }
-        .app-card p { font-size: 0.9em; opacity: 0.85; }
-        .app-card a.button {
-            margin-top: 0.8em;
-            font-size: 0.8em;
-        }
+
         .cta-main {
             display: inline-block;
-            margin-top: 1.5em;
-            padding: 0.9em 2em;
-            border: 2px solid #ffffff;
-            border-radius: 8px;
-            font-weight: bold;
-            letter-spacing: 0.1em;
+            margin-top: 1.6em;
+            padding: 0.85em 1.8em;
+            background: #1e5fa8;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
+            font-size: 0.8em;
             color: #ffffff;
             text-decoration: none;
+            transition: background 0.2s ease;
         }
-        .cta-main:hover { background: #ffffff; color: #1b1f22; }
+        .cta-main:hover {
+            background: #164a85;
+            color: #ffffff;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2em;
+            margin-top: 1.8em;
+        }
+
+        .app-card {
+            background: #ffffff;
+            border: 1px solid #e2e6ea;
+            border-radius: 6px;
+            padding: 1.4em;
+            text-align: left;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .app-card:hover {
+            box-shadow: 0 6px 18px rgba(30, 95, 168, 0.12);
+            border-color: #1e5fa8;
+        }
+
+        .app-card h3 {
+            margin: 0 0 0.5em 0;
+            color: #1e5fa8;
+            font-size: 1.15em;
+        }
+
+        .app-card p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 0 0 1em 0;
+            line-height: 1.5;
+        }
+
+        .app-card a.button {
+            display: inline-block;
+            padding: 0.55em 1.1em;
+            background: #1e5fa8;
+            color: #ffffff;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+        }
+        .app-card a.button:hover {
+            background: #164a85;
+            color: #ffffff;
+        }
+
+        #footer .copyright {
+            color: #aab2bb;
+        }
+        #footer .copyright a {
+            color: #1e5fa8;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body class="is-preload">
 
     <div id="wrapper">
 
-        <!-- HEADER / HERO -->
+        <!-- HERO -->
         <header id="header">
             <div class="logo">
                 <span class="icon fa-code"></span>
             </div>
             <div class="content">
                 <div class="inner">
-                    <h1>Jorge Miguel Delgado</h1>
-                    <p>Desarrollador de Apps Móviles · Fundador de <strong>IziCodes</strong></p>
-                    <p>Creo aplicaciones Android para productividad, educación y entretenimiento.</p>
-                    <a href="https://izicodes.com" class="cta-main" target="_blank" rel="noopener">Visitar izicodes.com</a>
+                    <h1>Jorge Delgado</h1>
+                    <p>Desarrollador de aplicaciones Android.</p>
+                    <a href="https://izicodes.com" class="cta-main" target="_blank" rel="noopener">izicodes.com</a>
                 </div>
             </div>
             <nav>
                 <ul>
                     <li><a href="#apps">Apps</a></li>
                     <li><a href="#sobre-mi">Sobre mí</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
         </header>
@@ -75,22 +128,22 @@
         <!-- MAIN -->
         <div id="main">
 
-            <!-- SECCIÓN APPS -->
+            <!-- APPS -->
             <article id="apps">
-                <h2 class="major">Mis Aplicaciones</h2>
-                <p>Todas disponibles en Google Play. Desarrolladas por IziCodes.</p>
+                <h2 class="major">Aplicaciones</h2>
+                <p>Publicadas en Google Play.</p>
 
                 <div class="apps-grid">
 
                     <div class="app-card">
                         <h3>Stocker</h3>
-                        <p>Control de inventario y ventas para pymes, emprendedores y vendedores.</p>
+                        <p>Control de inventario y ventas para pymes y emprendedores.</p>
                         <a class="button" href="https://play.google.com/store/apps/details?id=com.izicodes.stocker" target="_blank" rel="noopener">Ver en Play Store</a>
                     </div>
 
                     <div class="app-card">
                         <h3>NIUS UAGRM</h3>
-                        <p>Guía universitaria para nuevos estudiantes de la UAGRM: rutas, trámites y más.</p>
+                        <p>Guía universitaria para nuevos estudiantes de la UAGRM.</p>
                         <a class="button" href="https://play.google.com/store/apps/details?id=com.izicodes.guia_dino" target="_blank" rel="noopener">Ver en Play Store</a>
                     </div>
 
@@ -102,40 +155,23 @@
 
                     <div class="app-card">
                         <h3>Izi Movies</h3>
-                        <p>Catálogo de películas y series con buscador y detalles actualizados.</p>
+                        <p>Catálogo de películas y series con buscador integrado.</p>
                         <a class="button" href="https://play.google.com/store/apps/details?id=com.izicodes.izimoviespeliculas" target="_blank" rel="noopener">Ver en Play Store</a>
                     </div>
-
-                    <!-- NOTA: izimascotas da error 404. Descomenta solo si arreglas el enlace. -->
-                    <!--
                     <div class="app-card">
-                        <h3>Izi Mascotas</h3>
-                        <p>App para el cuidado y gestión de mascotas.</p>
+                        <h3>Beethoven</h3>
+                        <p>App de rescate de mascotas</p>
                         <a class="button" href="https://play.google.com/store/apps/details?id=com.izicodes.izimascotas" target="_blank" rel="noopener">Ver en Play Store</a>
                     </div>
-                    -->
 
                 </div>
             </article>
 
-            <!-- SECCIÓN SOBRE MI -->
+            <!-- SOBRE MI -->
             <article id="sobre-mi">
                 <h2 class="major">Sobre mí</h2>
-                <p>Soy <strong>Jorge Miguel Delgado Huayhua</strong>, desarrollador de software radicado en Yacuiba, Bolivia. Fundador de <strong>IziCodes</strong>, un proyecto enfocado en crear aplicaciones Android útiles y accesibles.</p>
-                <p>He publicado apps en Google Play para gestión de inventario, educación universitaria, entretenimiento e inteligencia artificial.</p>
+                <p>Desarrollador de software enfocado en crear aplicaciones Android útiles y accesibles.</p>
                 <p>Más información en <a href="https://izicodes.com" target="_blank" rel="noopener">izicodes.com</a>.</p>
-            </article>
-
-            <!-- SECCIÓN CONTACTO -->
-            <article id="contacto">
-                <h2 class="major">Contacto</h2>
-                <ul>
-                    <li><strong>Email:</strong> <a href="mailto:ing.delgadojorge@gmail.com">ing.delgadojorge@gmail.com</a></li>
-                    <li><strong>Teléfono:</strong> +591 74505105</li>
-                    <li><strong>Web:</strong> <a href="https://izicodes.com" target="_blank" rel="noopener">izicodes.com</a></li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/JorgeMiguelDelgado" target="_blank" rel="noopener">github.com/JorgeMiguelDelgado</a></li>
-                    <li><strong>Ubicación:</strong> Yacuiba, Bolivia</li>
-                </ul>
             </article>
 
         </div>
@@ -143,13 +179,13 @@
         <!-- FOOTER -->
         <footer id="footer">
             <p class="copyright">
-                &copy; 2026 Jorge Miguel Delgado · <a href="https://izicodes.com" target="_blank" rel="noopener">IziCodes</a>
+                &copy; 2026 Jorge Delgado · <a href="https://izicodes.com" target="_blank" rel="noopener">izicodes.com</a>
             </p>
         </footer>
 
     </div>
 
-    <!-- Scripts de la plantilla Hyperspace -->
+    <!-- Scripts de la plantilla -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
     <script src="assets/js/breakpoints.min.js"></script>
